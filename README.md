@@ -22,5 +22,4 @@ The application will be invoked with the following command: node index.js
 
 # License
 
-[I'm a relative reference to a repository file](../blob/master/License.txt)
-Licensed under the [MIT](../blob/master/License.txt) license.
+Licensed under the [MIT](https://github.com/johncosper/07-homework-assignment/blob/master/License.txt) license.
