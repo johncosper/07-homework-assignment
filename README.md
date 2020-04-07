@@ -22,4 +22,4 @@ The application will be invoked with the following command: node index.js
 
 # License
 
-
+Licensed under the MIT license.
