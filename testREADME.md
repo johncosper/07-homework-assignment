@@ -1,1 +1,41 @@
-"\n    ![License shield](https://img.shields.io/github/license/johncosper/07-homework-assignment) ![Repo size shield](https://img.shields.io/github/repo-size/johncosper/07-homework-assignment) ![Language shield](https://img.shields.io/github/languages/top/johncosper/07-homework-assignment)\n\n        ## Table of Contents\n            *   Description\n            *   Version\n            *   Usage\n            *   License\n            *   Author\n            *   Contributors\n            *   Run test\n            *   Feedback\n\n        ## Title\n            Good Readme Generator\n\n        ## Description\n            Command line application to generate readme for your repository\n\n        ## Version\n            0.0.1\n\n        ## Usage\n            node index.js\n\n        ## License\n            Mit\n            test.url\n\n        ## Author\n            github.com/johncosper\n\n        ## Contributors\n            me myself and I\n\n        ## Run Test\n            npm test\n\n        ## Feedback\n            test@email.com\n        "
+
+    ![License shield](https://img.shields.io/github/license/johncosper/07-homework-assignment) ![Repo size shield](https://img.shields.io/github/repo-size/johncosper/07-homework-assignment) ![Language shield](https://img.shields.io/github/languages/top/johncosper/07-homework-assignment)
+
+        ## Table of Contents
+            *   Description
+            *   Version
+            *   Usage
+            *   License
+            *   Author
+            *   Contributors
+            *   Run test
+            *   Feedback
+
+        ## Title
+            Good README generator
+
+        ## Description
+            Commandline application that generates a readme based on your github repo
+
+        ## Version
+            0.0.1
+
+        ## Usage
+            node index.js
+
+        ## License
+            MIT
+            test.com
+
+        ## Author
+            github.com/johncosper
+
+        ## Contributors
+            me, myself, and I
+
+        ## Run Test
+            npm test
+
+        ## Feedback
+            test@email.com
+        

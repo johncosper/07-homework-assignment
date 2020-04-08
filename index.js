@@ -1,66 +1,69 @@
-const inq = require('inquirer');
+const inquirer = require('inquirer');
 const fs = require('fs');
 
-inq
-  .prompt([
-    {
-        type: "input",
-        message: "Github username",
-        name: "github_user"
-    },
-    {
-        type: "input",
-        message: "Github repository",
-        name: "github_repo"
-    },
-    {
-      type: "input",
-      message: "Project title?",
-      name: "title"
-    },
-    {
-      type: "input",
-      message: "Project version",
-      name: "version",
-    },
-    {
-      type: "input",
-      message: "Project description",
-      name: "description",
-    },
-    {
-        type: "input",
-        message: "Project usage",
-        name: "usage"
-    },
-    {
-        type: "input",
-        message: "Project license",
-        name: "license"
-    },
-    {
-        type: "input",
-        message: "Project license url",
-        name: "license_url"
-    },
-    {
-        type: "input",
-        message: "Project contributors",
-        name: "contributors"
-    },
-    {
-        type: "input",
-        message: "Project test command",
-        name: "test"
-    },
-    {
-        type: "input",
-        message: "Where can users reach you if they have questions?",
-        name: "questions"
-    },
-    
-  ]).then(function(response) {
-    const template = `
+function promptUser() {
+    return inquirer.prompt([
+        {
+            type: "input",
+            message: "What is your Github username",
+            name: "github_user"
+        },
+        {
+            type: "input",
+            message: "What is your Github repository",
+            name: "github_repo"
+        },
+        {
+            type: "input",
+            message: "What is your project title?",
+            name: "title"
+        },
+        {
+            type: "input",
+            message: "What is your project version",
+            name: "version",
+        },
+        {
+            type: "input",
+            message: "What is your project description",
+            name: "description",
+        },
+        {
+            type: "input",
+            message: "What is your project usage",
+            name: "usage"
+        },
+        {
+            type: "input",
+            message: "What is your project license",
+            name: "license"
+        },
+        {
+            type: "input",
+            message: "What is the project license url",
+            name: "license_url"
+        },
+        {
+            type: "input",
+            message: "Who are your project contributors",
+            name: "contributors"
+        },
+        {
+            type: "input",
+            message: "What is your project test command",
+            name: "test"
+        },
+        {
+            type: "input",
+            message: "What email can users reach you at if they have questions?",
+            name: "questions"
+        },
+        
+      ]);
+};
+
+function generateMarkdown(response) {
+    return `
     ![License shield](https://img.shields.io/github/license/${response.github_user}/${response.github_repo}) ![Repo size shield](https://img.shields.io/github/repo-size/${response.github_user}/${response.github_repo}) ![Language shield](https://img.shields.io/github/languages/top/${response.github_user}/${response.github_repo})
 
         ## Table of Contents
@@ -101,11 +104,14 @@ inq
         ## Feedback
             ${response.questions}
         `;
-    var filename = 'testREADME.md'
-
+}
+ 
+promptUser().then(function(response) {
     console.log(response);
+    
+    const markdown = generateMarkdown(response);
 
-    fs.writeFile(filename, JSON.stringify(template, null, '\t'), function(error) {
+    fs.writeFile('testREADME.md', markdown, function(error) {
         if (error) {
             return console.log(error);
         } else {
@@ -113,3 +119,4 @@ inq
         }
     });
 });
+
