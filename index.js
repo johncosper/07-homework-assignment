@@ -1,12 +1,12 @@
-var inq = require('inquirer');
-var fs = require('fs');
+const inq = require('inquirer');
+const fs = require('fs');
 
 inq
   .prompt([
     {
         type: "input",
         message: "Github username",
-        name: "Github user"
+        name: "github_user"
     },
     {
       type: "input",
@@ -36,7 +36,7 @@ inq
     {
         type: "input",
         message: "Project license url",
-        name: "license url"
+        name: "license_url"
     },
     {
         type: "input",
@@ -55,18 +55,55 @@ inq
     },
     
   ]).then(function(response) {
-        console.log(response);
+    const template = `
+        ## Table of Contents
+            *   Description
+            *   Version
+            *   Usage
+            *   License
+            *   Author
+            *   Contributors
+            *   Run test
+            *   Feedback
 
-        var filename = 'testREADME.md'
+        ## Title
+            ${response.title}
 
-        fs.writeFile(filename, JSON.stringify(response, null, '\t'), function(error) {
-            if (error) {
-                return console.log(error);
-            } else {
-                console.log('success')
-            }
-        });
+        ## Description
+            ${response.description}
+
+        ## Version
+            ${response.version}
+
+        ## Usage
+            ${response.usage}
+
+        ## License
+            ${response.license}
+            ${response.license_url}
+
+        ## Author
+            github.com/${response.github_user}
+
+        ## Contributors
+            ${response.contributors}
+
+        ## Run Test
+            ${response.test}
+
+        ## Feedback
+            ${response.questions}
+        `;
+    var filename = 'testREADME.md'
+
+    fs.writeFile(filename, JSON.stringify(template, null, '\t'), function(error) {
+        if (error) {
+            return console.log(error);
+        } else {
+            console.log('success')
+        }
     });
+});
 
 function init() {
 

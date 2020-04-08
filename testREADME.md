@@ -1,12 +1,1 @@
-{
-	"Github user": "johncosper",
-	"title": "readme generator",
-	"version": "0.0.1",
-	"description": "command line application that creates a readme based on user input",
-	"usage": "node index.js",
-	"license": "MIT",
-	"license url": "(../blob/master/LICENSE)",
-	"contributors": "John Cosper",
-	"test": "npm test",
-	"questions": "johngcosper@gmail.com"
-}
+"\n        ## Table of Contents\n            *   Description\n            *   Version\n            *   Usage\n            *   License\n            *   Author\n            *   Contributors\n            *   Run test\n            *   Feedback\n\n        ## Title\n            test\n\n        ## Description\n            test\n\n        ## Version\n            test\n\n        ## Usage\n            test\n\n        ## License\n            test\n            test\n\n        ## Author\n            github.com/test\n\n        ## Contributors\n            test\n\n        ## Run Test\n            test\n\n        ## Feedback\n            test\n        "
