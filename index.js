@@ -9,6 +9,11 @@ inq
         name: "github_user"
     },
     {
+        type: "input",
+        message: "Github repository",
+        name: "github_repo"
+    },
+    {
       type: "input",
       message: "Project title?",
       name: "title"
@@ -56,6 +61,8 @@ inq
     
   ]).then(function(response) {
     const template = `
+    ![License shield](https://img.shields.io/github/license/${response.github_user}/${response.github_repo}) ![Repo size shield](https://img.shields.io/github/repo-size/${response.github_user}/${response.github_repo}) ![Language shield](https://img.shields.io/github/languages/top/${response.github_user}/${response.github_repo})
+
         ## Table of Contents
             *   Description
             *   Version
@@ -96,6 +103,8 @@ inq
         `;
     var filename = 'testREADME.md'
 
+    console.log(response);
+
     fs.writeFile(filename, JSON.stringify(template, null, '\t'), function(error) {
         if (error) {
             return console.log(error);
@@ -104,9 +113,3 @@ inq
         }
     });
 });
-
-function init() {
-
-}
-
-init();
