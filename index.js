@@ -1,5 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./generateMarkdown');
+const axios = require('axios');
 
 function promptUser() {
     return inquirer.prompt([
@@ -62,52 +64,14 @@ function promptUser() {
       ]);
 };
 
-function generateMarkdown(response) {
-    return `
-    ![License shield](https://img.shields.io/github/license/${response.github_user}/${response.github_repo}) ![Repo size shield](https://img.shields.io/github/repo-size/${response.github_user}/${response.github_repo}) ![Language shield](https://img.shields.io/github/languages/top/${response.github_user}/${response.github_repo})
-
-        ## Table of Contents
-            *   Description
-            *   Version
-            *   Usage
-            *   License
-            *   Author
-            *   Contributors
-            *   Run test
-            *   Feedback
-
-        ## Title
-            ${response.title}
-
-        ## Description
-            ${response.description}
-
-        ## Version
-            ${response.version}
-
-        ## Usage
-            ${response.usage}
-
-        ## License
-            ${response.license}
-            ${response.license_url}
-
-        ## Author
-            github.com/${response.github_user}
-
-        ## Contributors
-            ${response.contributors}
-
-        ## Run Test
-            ${response.test}
-
-        ## Feedback
-            ${response.questions}
-        `;
-}
- 
-promptUser().then(function(response) {
+promptUser().then(async function(response) {
     console.log(response);
+
+    const url = `https://api.github.com/users/${response.github_user}`;
+
+    const data = await axios.get(url);
+    console.log(data)
+    
     
     const markdown = generateMarkdown(response);
 
