@@ -70,7 +70,7 @@ promptUser().then(async function(response) {
     const url = `https://api.github.com/users/${response.github_user}`;
 
     const data = await axios.get(url);
-    console.log(data)
+    // console.log(data)
     
     
     const markdown = generateMarkdown(response);

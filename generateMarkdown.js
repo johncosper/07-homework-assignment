@@ -2,6 +2,9 @@ function generateMarkdown(response) {
 return `
 ![License shield](https://img.shields.io/github/license/${response.github_user}/${response.github_repo}?style=plastic) ![Repo size shield](https://img.shields.io/github/repo-size/${response.github_user}/${response.github_repo}?style=plastic) ![Language shield](https://img.shields.io/github/languages/top/${response.github_user}/${response.github_repo}?style=plastic)
 
+# Title
+${response.title}
+
 ## Table of Contents
 *   Description
 *   Version
@@ -11,9 +14,6 @@ return `
 *   Contributors
 *   Run test
 *   Feedback
-
-## Title
-${response.title}
 
 ## Description
 ${response.description}
